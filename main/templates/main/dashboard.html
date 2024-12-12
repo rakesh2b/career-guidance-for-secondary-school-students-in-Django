@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard</title>
+    {% load static %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-image: linear-gradient(white, rgba(95, 149, 249, 0.895), hwb(0 3% 97%));
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+
+
+        }
+        p{
+            color: rgba(33, 6, 64, 0.651);
+            font-weight: 100;
+        }
+
+        .box {
+            border: 2px solid grey;
+            width: 900px;
+            box-shadow: 4px 6px 10px 4px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            margin: auto;
+            border-radius: 35px;
+            padding: 30px;
+
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin: 20px 0;
+        }
+
+        label {
+            /* display: inline-block; */
+            width: 150px;
+        }
+
+        input,
+        select,
+        button {
+            margin: 5px 0;
+        }
+
+        button {
+            background-color: hsl(222, 86%, 49%);
+            border-radius: 7px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            color: white;
+        }
+
+        button:hover {
+            background-color: hsl(223, 90%, 61%);
+        }
+
+        a {
+            text-decoration: double;
+            color: #ffffff;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+        hr.solid {
+  border-top: 1px solid rgb(100, 100, 100);
+}
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>Explore Career Options or Take an Aptitude Test</h1>
+        <p><strong>Choosing the right career path can be overwhelming, but it doesn't have to be. <br> Take the first step towards your future today and discover the career that's right for you!
+        </strong></p>
+        <form method="post">
+            {% csrf_token %}
+            <label for="domain">Tell Us About Your Secondary Education:</label>
+            <select id="domain" name="domain">
+                <option value="Science">Science</option>
+                <option value="Commerce">Commerce</option>
+                <option value="Arts">Arts</option>
+            </select>
+            <button type="submit">Search Careers</button>
+        </form><br><br>
+        <hr class="solid"><br>
+        <h3>Ready to Discover Your Ideal Career?</h3>
+        <p><strong>
+            Take our comprehensive career aptitude test to identify the best career paths based on your interests and strengths. Answer a few questions, and we'll provide personalized career recommendations tailored just for you. Start your journey towards a fulfilling career today!</strong></p>
+        <button><a href="{% url 'aptitude_test' %}">Take Aptitude Test</a></button><br><br><br>
+    </div>
+</body>
+
+</html>

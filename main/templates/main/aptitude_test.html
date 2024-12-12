@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aptitude Test</title>
+    {% load static %}
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'main/styles.css' %}"> -->
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            /* text-align: center; */
+            margin-top: 50px;
+            background-image: linear-gradient(white, rgba(95, 149, 249, 0.895), hwb(0 3% 97%));
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+
+
+        }
+
+        .box {
+            border: 2px solid grey;
+            width: 400px;
+            box-shadow: 4px 6px 10px 4px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            margin: auto;
+            border-radius: 35px;
+            padding: 25px;
+
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin: 20px 0;
+        }
+
+        label {
+            /* display: inline-block; */
+            width: 150px;
+        }
+
+        input,
+        select,
+        button {
+            margin: 5px 0;
+        }
+
+        button {
+            background-color: hsl(222, 89%, 18%);
+            border-radius: 7px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            margin-left: 160px;
+
+        }
+
+        button:hover {
+            background-color: hsl(223, 69%, 45%);
+        }
+
+        a {
+            text-decoration: double;
+            color: #ffffff;
+        }
+
+        a:hover {
+            text-decoration: none;
+        } 
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        
+    <h1 style="text-align: center;">Aptitude Test</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% for question in questions %}
+            <p>{{ question }}</p>
+            <input type="text" name="question_{{ forloop.counter0 }}"><br>
+        {% endfor %} <br><br>
+        <button type="submit">Submit</button>
+    </form>
+    </div>
+    
+</body>
+</html>

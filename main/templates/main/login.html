@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'main/styles.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 200px;
+            background-image: linear-gradient(white,rgba(95, 149, 249, 0.895),hwb(0 3% 97%));
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+
+            
+        }
+        .box{
+            border: 2px solid grey;
+            width: 400px;
+            box-shadow: 4px 6px 10px 4px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            margin: auto;
+            border-radius: 35px;
+        
+        }
+        
+        h1 {
+            color: #333;
+        }
+        
+        form {
+            margin: 20px 0;
+        }
+        
+        label {
+            /* display: inline-block; */
+            width: 150px;
+        }
+        
+        input, select, button {
+            margin: 5px 0;
+        }
+        
+        button {
+            background-color: hsl(222, 86%, 49%);
+            border-radius: 7px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;  
+            color: white;  
+        }
+        
+        button:hover {
+            background-color: hsl(223, 90%, 61%);
+        }
+        a {
+            text-decoration: double;
+            color: #ffffff;
+        }
+        
+        a:hover {
+            text-decoration: none;
+        }
+        </style>
+</head>
+<body>
+
+    <div class="box"><h1>Login</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"><br><br>
+            <button type="submit">Login</button>
+        </form></div>
+ 
+</body>
+</html>
